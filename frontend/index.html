@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cosmic Council — Relationship Advice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="stars-canvas"></canvas>
+  <div class="orb orb--1"></div>
+  <div class="orb orb--2"></div>
+  <div class="orb orb--3"></div>
+  <div class="orbit-ring orbit-ring--1"></div>
+  <div class="orbit-ring orbit-ring--2"></div>
+  <div class="orbit-ring orbit-ring--3"></div>
+
+  <div class="page">
+
+    <!-- 1. Hero -->
+    <header class="hero">
+      <div class="hero-glyph">
+        <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="45" cy="45" r="43" stroke="url(#g1)" stroke-width="0.6"/>
+          <circle cx="45" cy="45" r="32" stroke="rgba(155,127,255,0.14)" stroke-width="0.5" stroke-dasharray="2.5 3.5"/>
+          <circle cx="45" cy="45" r="20" stroke="rgba(155,127,255,0.1)" stroke-width="0.5"/>
+          <line x1="45" y1="2" x2="45" y2="88" stroke="rgba(155,127,255,0.1)" stroke-width="0.5"/>
+          <line x1="2" y1="45" x2="88" y2="45" stroke="rgba(155,127,255,0.1)" stroke-width="0.5"/>
+          <line x1="13" y1="13" x2="77" y2="77" stroke="rgba(155,127,255,0.065)" stroke-width="0.5"/>
+          <line x1="77" y1="13" x2="13" y2="77" stroke="rgba(155,127,255,0.065)" stroke-width="0.5"/>
+          <polygon points="45,5 47.2,11 42.8,11" fill="rgba(180,155,255,0.75)"/>
+          <polygon points="45,85 47.2,79 42.8,79" fill="rgba(155,127,255,0.45)"/>
+          <polygon points="85,45 79,42.8 79,47.2" fill="rgba(155,127,255,0.45)"/>
+          <polygon points="5,45 11,42.8 11,47.2" fill="rgba(155,127,255,0.45)"/>
+          <path d="M45 31C37.5 31 30 36.5 30 45s7.5 14 15 14c-4.5-4.5-5.5-20 0-28z" fill="rgba(155,127,255,0.38)"/>
+          <circle cx="45" cy="45" r="5.5" fill="rgba(155,127,255,0.18)" stroke="rgba(180,155,255,0.4)" stroke-width="0.7"/>
+          <circle cx="45" cy="45" r="2" fill="rgba(220,205,255,0.9)"/>
+          <circle cx="45" cy="7"  r="1.4" fill="rgba(180,155,255,0.8)"/>
+          <circle cx="83" cy="45" r="1.1" fill="rgba(155,127,255,0.55)"/>
+          <circle cx="45" cy="83" r="1.1" fill="rgba(155,127,255,0.55)"/>
+          <circle cx="7"  cy="45" r="1.1" fill="rgba(155,127,255,0.55)"/>
+          <circle cx="19" cy="19" r="0.8" fill="rgba(155,127,255,0.4)"/>
+          <circle cx="71" cy="19" r="0.8" fill="rgba(155,127,255,0.4)"/>
+          <circle cx="71" cy="71" r="0.8" fill="rgba(155,127,255,0.4)"/>
+          <circle cx="19" cy="71" r="0.8" fill="rgba(155,127,255,0.4)"/>
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="90" y2="90" gradientUnits="userSpaceOnUse">
+              <stop offset="0%"   stop-color="rgba(180,155,255,0.45)"/>
+              <stop offset="50%"  stop-color="rgba(100,75,220,0.18)"/>
+              <stop offset="100%" stop-color="rgba(155,127,255,0.42)"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <h1 class="hero-title">Cosmic Council</h1>
+      <p class="hero-tagline">Describe your situation. Three advisors will speak.</p>
+    </header>
+
+    <!-- 2 + 3. Input panel and submit button -->
+    <div class="input-panel">
+      <form id="advice-form">
+        <label class="input-label" for="situation">Your Situation</label>
+        <textarea
+          id="situation"
+          name="situation"
+          rows="6"
+          maxlength="1000"
+          placeholder="What happened? What are you feeling? What do you need clarity on?&#10;&#10;Be honest — the council listens without judgment."
+          required
+        ></textarea>
+        <div class="input-footer">
+          <span id="char-count" class="char-count">0 / 1000</span>
+          <button type="submit" id="submit-btn" class="summon-btn">
+            <svg class="btn-moon" viewBox="0 0 14 14" fill="none">
+              <path d="M7 1.5C4 1.5 1.5 4 1.5 7s2.5 5.5 5.5 5.5c.7 0 1.4-.14 2-.4C6.8 11.1 5.5 9.2 5.5 7S6.8 2.9 9 1.9A5.4 5.4 0 0 0 7 1.5Z" fill="currentColor"/>
+            </svg>
+            Summon the Council
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Error -->
+    <div id="error-section" class="error-banner" hidden>
+      <p id="error-message"></p>
+    </div>
+
+    <!-- 4. Section heading — always visible -->
+    <div class="section-heading">
+      <div class="sh-line"></div>
+      <div class="sh-label">
+        <span class="sh-star">✦</span>
+        <span>Three Perspectives</span>
+        <span class="sh-star">✦</span>
+      </div>
+      <div class="sh-line"></div>
+    </div>
+
+    <!-- 5. Three advisor cards — always visible, populated on submit -->
+    <div class="advisors-grid" id="opinions">
+
+      <div class="advisor-card" data-agent="astrology">
+        <div class="advisor-icon">☽</div>
+        <span class="advisor-name">Cosmic Reader</span>
+        <span class="advisor-role">Celestial Interpretation</span>
+        <div class="advisor-rule"></div>
+        <p class="advisor-advice advisor-advice--idle">
+          Describe your situation above and the stars will speak.
+        </p>
+        <span class="source-badge" hidden></span>
+      </div>
+
+      <div class="advisor-card" data-agent="behavioral">
+        <div class="advisor-icon">◎</div>
+        <span class="advisor-name">Behavior Analyst</span>
+        <span class="advisor-role">Pattern Recognition</span>
+        <div class="advisor-rule"></div>
+        <p class="advisor-advice advisor-advice--idle">
+          Share your story and your patterns will be read.
+        </p>
+        <span class="source-badge" hidden></span>
+      </div>
+
+      <div class="advisor-card" data-agent="history">
+        <div class="advisor-icon">♡</div>
+        <span class="advisor-name">Experienced Advisor</span>
+        <span class="advisor-role">Wisdom from Experience</span>
+        <div class="advisor-rule"></div>
+        <p class="advisor-advice advisor-advice--idle">
+          Speak your truth and experience will guide you.
+        </p>
+        <span class="source-badge" hidden></span>
+      </div>
+
+    </div>
+
+    <!-- 6. Synthesis card — hidden until results arrive -->
+    <div id="result" class="synthesis-card" hidden>
+      <div class="synthesis-top">
+        <div class="synthesis-glyph">⊕</div>
+        <div class="synthesis-meta">
+          <span class="synthesis-eyebrow">✦ &thinsp; Council Synthesis &thinsp; ✦</span>
+          <span class="synthesis-role">Unified Perspective</span>
+        </div>
+      </div>
+      <div class="synthesis-divider"></div>
+      <p id="final-advice" class="synthesis-advice"></p>
+      <p id="rationale" class="synthesis-rationale"></p>
+    </div>
+
+    <footer class="page-footer">
+      <span>✦ &ensp; Trust the stars, but also trust yourself &ensp; ✦</span>
+    </footer>
+
+  </div>
+
+  <!-- Kept for JS compatibility -->
+  <div id="scores" hidden></div>
+  <div id="agent-sources" hidden></div>
+
+  <script src="main.js"></script>
+</body>
+</html>

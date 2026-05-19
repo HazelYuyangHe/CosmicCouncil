@@ -1,0 +1,10 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - heading "AI Multi-Agent Dating Assistant" [level=1] [ref=e4]
+    - paragraph [ref=e5]: Describe your situation and receive advice synthesized from multiple AI perspectives.
+  - main [ref=e6]:
+    - generic [ref=e7]:
+      - generic [ref=e8]: Your situation
+      - textbox "Your situation" [ref=e9]:
+        - /placeholder: e.g. I've been talking to someone for two weeks. We have a lot in common but I'm not sure if they're interested romantically. My birthday is June 15, 1995...
+      - button "Get Advice" [ref=e10] [cursor=pointer]

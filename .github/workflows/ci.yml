@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  ci:
+    name: Test, Build & Audit
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm install
+
+      # ── Unit + integration tests ──────────────────────────────────────────
+      # No secrets or build required — runs in stub mode (no API key).
+      - name: Unit and integration tests
+        run: npm test
+
+      - name: Coverage
+        run: npm run test:coverage
+
+      # ── Build ─────────────────────────────────────────────────────────────
+      # Requires NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY for ClerkProvider.
+      # Add both Clerk keys to GitHub → Settings → Secrets → Actions.
+      - name: Build
+        run: npm run build
+        env:
+          NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
+          CLERK_SECRET_KEY: ${{ secrets.CLERK_SECRET_KEY }}
+
+      # ── E2E ───────────────────────────────────────────────────────────────
+      # Playwright starts `npm start` (production build) when CI=true.
+      # chromium-only keeps install time short.
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: E2E tests
+        run: npm run test:e2e
+        env:
+          CI: 'true'
+          NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
+          CLERK_SECRET_KEY: ${{ secrets.CLERK_SECRET_KEY }}
+
+      # ── Security audit ────────────────────────────────────────────────────
+      # continue-on-error so transitive vulnerabilities don't block the pipeline.
+      # Remove continue-on-error once all high-severity issues are resolved.
+      - name: Security audit
+        run: npm audit --audit-level=high
+        continue-on-error: true

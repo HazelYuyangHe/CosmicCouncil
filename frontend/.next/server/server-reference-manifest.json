@@ -1,0 +1,62 @@
+{
+  "node": {
+    "8201c106686a1efceebdaea012b7382fc9d92271": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22E%3A%5C%5CNortheasternUniversity%5C%5CCS7180%5C%5Cp3%5C%5CCS7180_project3%5C%5Cfrontend%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%22formatMetadataHeaders%22%2C%22collectKeylessMetadata%22%5D%5D%2C%5B%22E%3A%5C%5CNortheasternUniversity%5C%5CCS7180%5C%5Cp3%5C%5CCS7180_project3%5C%5Cfrontend%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%22syncKeylessConfigAction%22%2C%22detectKeylessEnvDriftAction%22%2C%22deleteKeylessAction%22%2C%22createOrReadKeylessAction%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc"
+      }
+    },
+    "e2a16063bc886e36c6af0f18e6baf2e0598faae6": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22E%3A%5C%5CNortheasternUniversity%5C%5CCS7180%5C%5Cp3%5C%5CCS7180_project3%5C%5Cfrontend%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%22formatMetadataHeaders%22%2C%22collectKeylessMetadata%22%5D%5D%2C%5B%22E%3A%5C%5CNortheasternUniversity%5C%5CCS7180%5C%5Cp3%5C%5CCS7180_project3%5C%5Cfrontend%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%22syncKeylessConfigAction%22%2C%22detectKeylessEnvDriftAction%22%2C%22deleteKeylessAction%22%2C%22createOrReadKeylessAction%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc"
+      }
+    },
+    "044321eb94747c8b32bd9157819240cd4407f21e": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22E%3A%5C%5CNortheasternUniversity%5C%5CCS7180%5C%5Cp3%5C%5CCS7180_project3%5C%5Cfrontend%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%22formatMetadataHeaders%22%2C%22collectKeylessMetadata%22%5D%5D%2C%5B%22E%3A%5C%5CNortheasternUniversity%5C%5CCS7180%5C%5Cp3%5C%5CCS7180_project3%5C%5Cfrontend%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%22syncKeylessConfigAction%22%2C%22detectKeylessEnvDriftAction%22%2C%22deleteKeylessAction%22%2C%22createOrReadKeylessAction%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc"
+      }
+    },
+    "3a8592d3e026e879d32546333613deb71e2ca89b": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22E%3A%5C%5CNortheasternUniversity%5C%5CCS7180%5C%5Cp3%5C%5CCS7180_project3%5C%5Cfrontend%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%22formatMetadataHeaders%22%2C%22collectKeylessMetadata%22%5D%5D%2C%5B%22E%3A%5C%5CNortheasternUniversity%5C%5CCS7180%5C%5Cp3%5C%5CCS7180_project3%5C%5Cfrontend%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%22syncKeylessConfigAction%22%2C%22detectKeylessEnvDriftAction%22%2C%22deleteKeylessAction%22%2C%22createOrReadKeylessAction%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc"
+      }
+    },
+    "9eeabc37014234f5bf6a7453b5afdf7acbb0d452": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22E%3A%5C%5CNortheasternUniversity%5C%5CCS7180%5C%5Cp3%5C%5CCS7180_project3%5C%5Cfrontend%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%22formatMetadataHeaders%22%2C%22collectKeylessMetadata%22%5D%5D%2C%5B%22E%3A%5C%5CNortheasternUniversity%5C%5CCS7180%5C%5Cp3%5C%5CCS7180_project3%5C%5Cfrontend%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%22syncKeylessConfigAction%22%2C%22detectKeylessEnvDriftAction%22%2C%22deleteKeylessAction%22%2C%22createOrReadKeylessAction%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc"
+      }
+    },
+    "f34c1d9e3143f163d56472e6e4d4d0d77adecbbb": {
+      "workers": {
+        "app/page": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22E%3A%5C%5CNortheasternUniversity%5C%5CCS7180%5C%5Cp3%5C%5CCS7180_project3%5C%5Cfrontend%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%22formatMetadataHeaders%22%2C%22collectKeylessMetadata%22%5D%5D%2C%5B%22E%3A%5C%5CNortheasternUniversity%5C%5CCS7180%5C%5Cp3%5C%5CCS7180_project3%5C%5Cfrontend%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%22syncKeylessConfigAction%22%2C%22detectKeylessEnvDriftAction%22%2C%22deleteKeylessAction%22%2C%22createOrReadKeylessAction%22%5D%5D%5D&__client_imported__=!"
+      },
+      "layer": {
+        "app/page": "rsc"
+      }
+    },
+    "85d2dff83db9b9ee4851814b97f1dc470d24dd57": {
+      "workers": {
+        "app/page": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22E%3A%5C%5CNortheasternUniversity%5C%5CCS7180%5C%5Cp3%5C%5CCS7180_project3%5C%5Cfrontend%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Cserver-actions.js%22%2C%5B%22invalidateCacheAction%22%5D%5D%5D&__client_imported__=true!"
+      },
+      "layer": {
+        "app/page": "action-browser"
+      }
+    }
+  },
+  "edge": {},
+  "encryptionKey": "EEgOGdRzJTgZnJKvYV8VdEIA01vSSWOPTHEb9KgZArA="
+}

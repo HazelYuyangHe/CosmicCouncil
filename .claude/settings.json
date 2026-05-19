@@ -1,0 +1,24 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/check-docs-reminder.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -c \"import json,sys; d=json.load(sys.stdin); p=d.get('tool_input',{}).get('file_path',''); print('\\nCode changes detected. Before committing or deploying, consider running:\\n  - npm run build\\n  - tests (if applicable)\\nto ensure the app is stable.') if any(x in p for x in ['frontend/app/','frontend/lib/','package.json']) else None\""
+          }
+        ]
+      }
+    ]
+  }
+}
