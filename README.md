@@ -220,9 +220,12 @@ Key findings:
 * `npm audit` runs in CI but with `continue-on-error: true`, so high-severity findings do not block deploys
 * No `NEXT_PUBLIC_` leakage of server-side secrets detected
 
+**Resolved:**
+
+- ✅ `ctx.user_id` now always derives from the verified Clerk session (`auth().userId`); `body.user_id` is ignored. Covered by an integration test that spoofs `body.user_id` and asserts `findOrCreateUser` is still called with the session userId. [commit](#) <!-- link added after push -->
+
 Recommended improvements:
 
-* Replace `ctx.user_id = body.user_id` with `ctx.user_id = userId` (from `auth()`)
 * Switch `clerkMiddleware()` to enforce mode for all `/api/` paths
 * Add a per-user rate limit (e.g. 5 req/min) before LLM calls are made
 * Remove `continue-on-error` from the audit step, or split it so `critical` findings fail the build

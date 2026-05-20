@@ -126,7 +126,7 @@ export async function POST(request) {
   }
 
   const ctx = {
-    user_id:    body.user_id    || 'anon',
+    user_id:    userId, // always derive from verified Clerk session; never trust body.user_id
     birth_date: body.birth_date || '1990-01-01',
     preferences: {
       looking_for:  body.preferences?.looking_for  || '',

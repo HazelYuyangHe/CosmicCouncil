@@ -6,7 +6,7 @@ vi.mock('@clerk/nextjs/server', () => ({
 }))
 
 // Provide a null sql client so the route's DB guard (if (sql) {...}) skips all DB ops.
-vi.mock('../../lib/db.js', () => ({ default: null }))
+vi.mock('../../lib/db.js', () => ({ default: {} }))
 
 vi.mock('../../lib/memory.js', () => ({
   findOrCreateUser:  vi.fn().mockResolvedValue(1),
@@ -16,6 +16,7 @@ vi.mock('../../lib/memory.js', () => ({
 }))
 
 import { auth } from '@clerk/nextjs/server'
+import { findOrCreateUser } from '../../lib/memory.js'
 import { POST } from '../../app/api/v1/advice/route.js'
 
 // ── Helpers ────────────────────────────────────────────────────────────────
@@ -105,5 +106,24 @@ describe('POST /api/v1/advice — stub mode (no ANTHROPIC_API_KEY)', () => {
       expect(op.source).toBe('stub')
       expect(op.advice.length).toBeGreaterThan(0)
     })
+  })
+})
+
+describe('POST /api/v1/advice — IDOR defense', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+    auth.mockResolvedValue({ userId: 'user_clerk_real' })
+  })
+
+  it('ignores body.user_id and uses the verified Clerk userId for DB identity', async () => {
+    // Attacker tries to act as a different user by spoofing body.user_id.
+    const spoofedBody = { ...VALID_BODY, user_id: 'user_victim_target' }
+
+    const res = await POST(makeRequest(spoofedBody))
+
+    expect(res.status).toBe(200)
+    // DB identity must come from the verified session, not the request body.
+    expect(findOrCreateUser).toHaveBeenCalledWith('user_clerk_real')
+    expect(findOrCreateUser).not.toHaveBeenCalledWith('user_victim_target')
   })
 })
