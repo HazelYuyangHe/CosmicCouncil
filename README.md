@@ -222,7 +222,7 @@ Key findings:
 
 **Resolved:**
 
-- ✅ `ctx.user_id` now always derives from the verified Clerk session (`auth().userId`); `body.user_id` is ignored. Covered by an integration test that spoofs `body.user_id` and asserts `findOrCreateUser` is still called with the session userId. [commit](#) <!-- link added after push -->
+- ✅ `ctx.user_id` now always derives from the verified Clerk session (`auth().userId`); `body.user_id` is ignored. Covered by an integration test that spoofs `body.user_id` and asserts `findOrCreateUser` is still called with the session userId. [commit]((https://github.com/HazelYuyangHe/CosmicCouncil/commit/f7f7eed)) <!-- link added after push -->
 
 Recommended improvements:
 
