@@ -7,6 +7,7 @@ import {
   saveSession,
   updateAgentMemory,
 } from '../../../../lib/memory'
+import { checkRateLimit } from '../../../../lib/rateLimit.js'
 
 const MODEL   = process.env.ANTHROPIC_MODEL   || 'claude-haiku-4-5-20251001'
 const API_KEY = process.env.ANTHROPIC_API_KEY || ''
@@ -123,6 +124,23 @@ export async function POST(request) {
     body = await request.json()
   } catch {
     return Response.json({ error: 'Invalid JSON' }, { status: 400 })
+  }
+
+  // ── Rate limit ─────────────────────────────────────────────────────────────
+  const { allowed, remaining, retryAfterMs } = checkRateLimit(userId)
+  if (!allowed) {
+    return Response.json(
+      { error: 'Too many requests. Please wait before trying again.' },
+      {
+        status: 429,
+        headers: {
+          'Retry-After':               String(Math.ceil(retryAfterMs / 1000)),
+          'X-RateLimit-Limit':         '5',
+          'X-RateLimit-Remaining':     '0',
+          'X-RateLimit-Reset':         String(Math.ceil((Date.now() + retryAfterMs) / 1000)),
+        },
+      }
+    )
   }
 
   const ctx = {
